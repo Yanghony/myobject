@@ -1,0 +1,10 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /myobject
+logging:
+  level:
+    root: info
+    com.kayak.myobject: warn
+  file:
+    name: logs/system.log
