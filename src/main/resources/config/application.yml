@@ -1,8 +1,3 @@
 spring:
   profiles:
-    active: prod
-#数据库要预先建立好，因为hibernate只会建表不会建库
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: false
+    active: dev
