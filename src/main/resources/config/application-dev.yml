@@ -5,7 +5,7 @@ server:
 logging:
   level:
     root: info
-    com.kayak.myobject: warn
+    com.kayak.myobject: info
   file:
     name: logs/system.log
 
@@ -14,3 +14,36 @@ spring:  #数据库要预先建立好，因为hibernate只会建表不会建库
     hibernate:
       ddl-auto: update
     show-sql: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/myobject?serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size: 5
+      min-idle: 5
+      max-active: 200
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: select 1 from dual
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      filters: stat,wall,slf4j
+      use-global-data-source-stat: true
+      connect-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      stat-view-servlet:
+        login-username: admin
+        login-password: admin
+        reset-enable: false
+        url-pattern: /druid/*
+        allow: 0.0.0.0
+        #deny:
+        enabled: true
+      web-stat-filter:
+        url-pattern: /*
+        exclusions: "/druid/*,*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico"
