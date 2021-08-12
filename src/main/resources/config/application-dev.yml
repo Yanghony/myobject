@@ -8,8 +8,14 @@ logging:
     com.kayak.myobject: info
   file:
     name: logs/system.log
-
-spring:  #数据库要预先建立好，因为hibernate只会建表不会建库
+spring:
+  mail:
+    properties:
+      "[mail.smtp.connectiontimeout]": 5000
+      "[mail.smtp.timeout]": 3000
+      "[mail.smtp.writetimeout]": 5000
+    jndi-name: "mail/Session"
+ #数据库要预先建立好，因为hibernate只会建表不会建库
   jpa:
     hibernate:
       ddl-auto: update
