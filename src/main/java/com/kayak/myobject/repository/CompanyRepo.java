@@ -16,7 +16,7 @@ import java.util.List;
  * @Description: 公司数据仓库接口
  */
 @Repository
-public interface CompanyRepo extends JpaRepository<Company,String> {
+public interface CompanyRepo extends JpaRepository<Company,Integer> {
     //原生sql查询
     @Query(value = "select * from company where comname = ?1",nativeQuery = true)
     List<Company> findByNativeSql(String comname);

@@ -27,8 +27,8 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public void delete(String uuid) {
-        companyRepo.deleteById(uuid);
+    public void delete(Integer id) {
+        companyRepo.deleteById(id);
     }
 
     @Transactional

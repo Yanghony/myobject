@@ -15,10 +15,8 @@ import javax.persistence.*;
 @Table(name = "company")
 public class Company {
     @Id
-    @GeneratedValue(generator = "myuuid")
-    @GenericGenerator(name = "myuuid",strategy = "uuid")
-    @Column(length = 32)
-    private String uuid;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @Column(length = 60)
     private String comname;
@@ -56,12 +54,12 @@ public class Company {
     @Column(length = 30)
     private String contactemail;
 
-    public String getUuid() {
-        return uuid;
+    public Integer getId() {
+        return id;
     }
 
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getComname() {

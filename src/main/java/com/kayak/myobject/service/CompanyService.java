@@ -18,7 +18,7 @@ public interface CompanyService {
 
     //删除
     @Transactional
-    void delete(String uuid);
+    void delete(Integer uuid);
 
     //修改
     @Transactional
